@@ -1,0 +1,71 @@
+@import "../typography.scss";
+@import "../breakpoints.scss";
+
+.contact {
+  display: flex;
+  flex-direction: column;
+
+  @media ( min-width: $breakpoint-tablet ) {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+}
+
+.contact__title.title {
+  @media ( max-width: $breakpoint-tablet ) {
+    margin-top: 0;
+  }
+}
+
+.contact__description {
+  margin: 20px 0;
+}
+
+.contact__description > div {
+  margin: 20px 0;
+}
+
+.contact__divider {
+  margin: 28px 65px;
+  text-align: center;
+
+  @media ( min-width: $breakpoint-tablet ) {
+    text-align: unset;
+  }
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__form input {
+  padding: 10px;
+  margin: 20px 0;
+  font-family: $text-font;
+  font-size: $font-size-m;
+}
+
+.contact__form textarea {
+  padding: 10px;
+  margin: 20px 0;
+  font-family: $text-font;
+  font-size: $font-size-m;
+}
+
+.contact__form-btn {
+  border: none;
+
+  @media ( min-width: $breakpoint-tablet ) {
+    margin-bottom: 100px;
+  }
+}
+
+.contact__right-box {
+  margin-bottom: 40px;
+  text-align: right;
+
+  @media ( min-width: $breakpoint-tablet ) {
+    margin-bottom: 0;
+  }
+}

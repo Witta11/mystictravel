@@ -1,0 +1,35 @@
+@import "../color.scss";
+@import "../typography.scss";
+@import "../breakpoints.scss";
+
+.about__image-first {
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid $black;
+  border-radius: 3px;
+}
+
+.about__image-text {
+  margin: 50px auto;
+  text-align: center;
+  font-family: $text-font;
+  line-height: 26px;
+  padding: 26px;
+
+  @media ( min-width: $breakpoint-tablet ) {
+    width: 620px;
+    border-bottom: 1px solid black;
+    padding: 0 0 100px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+  }
+}
+
+.about__title.title {
+  text-align: center;
+  margin-bottom: 40px;
+}

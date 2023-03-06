@@ -1,0 +1,77 @@
+@import "../../../scss/color";
+@import "../../../scss/typography";
+@import "../../../scss/breakpoints.scss";
+
+.navbar {
+  padding: 32px 0 10px;
+  text-transform: uppercase;
+
+    @media ( min-width: $breakpoint-tablet ) {
+      margin-bottom: 65px;
+  }
+}
+
+.navbar__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media ( max-width: $breakpoint-tablet ) {
+    align-items: baseline;
+    font-size: $font-size-ms;
+  }
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar__links {
+  text-decoration: none;
+  font-family: "Lato";
+  color: $black;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 3px;
+
+  &.is--link {
+    margin-right: 20px;
+
+    @media ( max-width: $breakpoint-tablet ) {
+      margin-right: 14px;
+    }
+  }
+
+  &.link-spacer {
+    margin-right: 20px;
+  }
+}
+
+.navbar__links:hover {
+  padding-bottom: 3px;
+  border-bottom: 1px solid black;
+}
+
+.navbar__link-active {
+  padding-bottom: 3px;
+  border-bottom: 1px solid black;
+}
+
+.icon__instagram {
+  color: $black;
+  font-size: 18px;
+  margin: 1px 0 0 20px;
+
+  @media ( max-width: $breakpoint-tablet ) {
+    margin: 0 0 0 20px;
+  }
+
+  &.is--footer {
+    color: $white;
+    margin-right: 22px;
+  }
+}
+
+.icon__instagram:hover {
+  color: $cta-color-primary;
+}

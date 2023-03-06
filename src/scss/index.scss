@@ -1,0 +1,50 @@
+@import "../components/Header/Navbar";
+@import "../components/Footer";
+@import "../components/ProductBoxSmall";
+@import "./pages";
+@import "./breakpoints.scss";
+
+body {
+  margin: 0;
+  font-family: $text-font;
+}
+
+.wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 960px;
+    padding-right: 16px;
+    padding-left: 16px;
+
+  @media ( min-width: $breakpoint-tablet ) {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+.is--body {
+  min-height: 100vh;
+}
+
+.btn {
+  background-color: $cta-color-primary;
+  min-width: 200px;
+  padding: 12px 0;
+  border-radius: 4px;
+  color: $white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: $font-size-ms;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background: #f37373;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: $font-size-l;
+  font-weight: bold;
+  margin: 20px 0;
+}

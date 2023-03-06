@@ -1,0 +1,61 @@
+@import "../../scss/color";
+@import "../../scss/typography";
+
+.footer {
+  position: relative;
+  height: 75px;
+  display: flex;
+  align-items: flex-end;
+  background: black;
+  color: white;
+  box-shadow: inset 0 15px 5px -16px #111;
+
+  @media ( min-width: $breakpoint-tablet ) {
+    height: 120px;
+  }
+}
+
+.footer__wrapper {
+  display: flex;
+  width: 100%;
+  margin: 20px 20px;
+  justify-content: space-between;
+  align-items: self-end;
+  font-family: $header-font;
+  text-transform: uppercase;
+  font-size: $font-size-ms;
+
+  @media ( max-width: $breakpoint-tablet ) {
+    font-size: $font-size-s;
+  }
+}
+
+.footer__left {
+  max-width: 140px;
+
+  @media ( min-width: $breakpoint-tablet ) {
+    max-width: unset;
+  }
+}
+
+.footer__right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__link {
+  cursor: pointer;
+  color: $white;
+  text-decoration: none;
+  margin-left: 22px;
+
+  &:hover {
+    color: $cta-color-primary;
+  }
+}
+
+.footer__right-bottom {
+  display: flex;
+}

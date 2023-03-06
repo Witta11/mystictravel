@@ -1,0 +1,28 @@
+@import "../breakpoints.scss";
+
+.listing {
+  @media ( min-width: $breakpoint-tablet ) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    margin-bottom: 65px;
+  }
+}
+
+.listing-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 40px 20px;
+  border-radius: 2px;
+
+  @media ( min-width: $breakpoint-tablet ) {
+    margin: 0;
+  }
+}
+
+
+.listing-element:hover {
+  box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
+}
