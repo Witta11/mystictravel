@@ -1,12 +1,12 @@
 {
-  "name": "dariusgloeckner",
+  "name": "wittagloeckner",
   "schemaPath": "./src/graphql/graphql-schema.graphql",
   "extensions": {
     "endpoints": {
       "Remote GraphQL Endpoint": {
-        "url": "https://graphql.contentful.com/content/v1/spaces/v67uvat55jk0/environments/master",
+        "url": "https://graphql.contentful.com/content/v1/spaces/we23sul8g558/environments/master",
         "headers": {
-          "Authorization": "Bearer 9SWDivWfGjq8ak5JDUMbNXdAHVoFT_eOhUCQLMxjjYQ"
+          "Authorization": "Bearer w9FVP1kYgU4h48tC0TtMA2jqAoFHXQ2Z-nq8YvLcqLk"
         },
         "introspect": true
       }

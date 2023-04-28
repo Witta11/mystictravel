@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer__wrapper wrapper">
-        <div className="footer__left">&copy; </div>
+        <div className="footer__left">Witta Glöckner &copy; </div>
         <div className="footer__right">
           <a
             target="_blank"

@@ -13,8 +13,8 @@ module.exports = {
     {
     resolve: `gatsby-source-contentful`,
     options: {
-      spaceId: `v67uvat55jk0`,
-      accessToken: `9SWDivWfGjq8ak5JDUMbNXdAHVoFT_eOhUCQLMxjjYQ`,
+      spaceId: `we23sul8g558`,
+      accessToken: `w9FVP1kYgU4h48tC0TtMA2jqAoFHXQ2Z-nq8YvLcqLk`,
     },
   },
   `gatsby-transformer-remark`,

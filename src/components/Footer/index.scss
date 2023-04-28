@@ -6,8 +6,8 @@
   height: 75px;
   display: flex;
   align-items: flex-end;
-  background: black;
-  color: white;
+  background: $purpledark;
+  color: $gold;
   box-shadow: inset 0 15px 5px -16px #111;
 
   @media ( min-width: $breakpoint-tablet ) {
@@ -47,12 +47,12 @@
 
 .footer__link {
   cursor: pointer;
-  color: $white;
+  color: $gold;
   text-decoration: none;
   margin-left: 22px;
 
   &:hover {
-    color: $cta-color-primary;
+    color: $white;
   }
 }
 

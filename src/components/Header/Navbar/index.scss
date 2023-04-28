@@ -3,12 +3,12 @@
 @import "../../../scss/breakpoints.scss";
 
 .navbar {
-  padding: 32px 0 10px;
+  padding: 75px 0 45px;
   text-transform: uppercase;
-
-    @media ( min-width: $breakpoint-tablet ) {
-      margin-bottom: 65px;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .navbar__wrapper {
@@ -33,9 +33,10 @@
   color: $black;
   border-bottom: 1px solid transparent;
   padding-bottom: 3px;
+  color: $gold;
 
   &.is--link {
-    margin-right: 20px;
+    margin-right: 95px;
 
     @media ( max-width: $breakpoint-tablet ) {
       margin-right: 14px;
@@ -49,16 +50,16 @@
 
 .navbar__links:hover {
   padding-bottom: 3px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $gold;
 }
 
 .navbar__link-active {
   padding-bottom: 3px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $gold;
 }
 
 .icon__instagram {
-  color: $black;
+  color: $gold;
   font-size: 18px;
   margin: 1px 0 0 20px;
 
@@ -67,11 +68,11 @@
   }
 
   &.is--footer {
-    color: $white;
+    color: $gold;
     margin-right: 22px;
   }
 }
 
 .icon__instagram:hover {
-  color: $cta-color-primary;
+  color: $beige;
 }

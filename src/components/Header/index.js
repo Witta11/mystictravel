@@ -1,10 +1,13 @@
 import * as React from "react";
 import Navbar from "./Navbar";
+import NavbarImage from "./NavbarImage";
+import "../../scss/index.scss";
 
 const Header = () => {
   return (
-    <div>
+    <div className="header">
       <Navbar />
+      <NavbarImage />
     </div>
   );
 };

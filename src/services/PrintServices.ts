@@ -1,39 +1,21 @@
 import apolloClient from '../graphql';
-import { GET_HOMEPAGE_IMG, GET_PRINT } from './queries';
+import { GET_HOMEPAGE_BANNER } from './queries';
 
 class PrintServices {
-  private printResponse;
-  private homePageResponse;
+  private homepageBannerResponse;
 
-  async getPrints() {
+  async getHomepageImageBanner() {
     try {
-      this.printResponse = await apolloClient.query({
-        query: GET_PRINT,
+      this.homepageBannerResponse = await apolloClient.query({
+        query: GET_HOMEPAGE_BANNER,
         variables: {}
       });
 
-      if (!this.printResponse || !this.printResponse.data){
+      if (!this.homepageBannerResponse || !this.homepageBannerResponse.data){
         throw Error('No data available');
       }
 
-      return this.printResponse;
-    } catch(error) {
-      throw error;
-    }
-  }
-
-  async getHomePageImages() {
-    try {
-      this.homePageResponse = await apolloClient.query({
-        query: GET_HOMEPAGE_IMG,
-        variables: {}
-      });
-
-      if (!this.homePageResponse || !this.homePageResponse.data){
-        throw Error('No data available');
-      }
-
-      return this.homePageResponse;
+      return this.homepageBannerResponse;
     } catch(error) {
       throw error;
     }

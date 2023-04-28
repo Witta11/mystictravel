@@ -1,4 +1,6 @@
+@import "../components/Header";
 @import "../components/Header/Navbar";
+@import "../components/Header/NavbarImage";
 @import "../components/Footer";
 @import "../components/ProductBoxSmall";
 @import "./pages";
@@ -27,7 +29,7 @@ body {
 }
 
 .btn {
-  background-color: $cta-color-primary;
+  background-color: $white;
   min-width: 200px;
   padding: 12px 0;
   border-radius: 4px;

@@ -1,0 +1,11 @@
+@import "../../scss/color";
+@import "../../scss/typography";
+@import "../../scss/breakpoints.scss";
+
+.header {
+  height: 400px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
