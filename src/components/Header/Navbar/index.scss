@@ -5,10 +5,11 @@
 .navbar {
   padding: 75px 0 45px;
   text-transform: uppercase;
-  position: absolute;
+  position: sticky;
+  width: 100%;
+  position: sticky;
   top: 0;
   left: 0;
-  width: 100%;
 }
 
 .navbar__wrapper {

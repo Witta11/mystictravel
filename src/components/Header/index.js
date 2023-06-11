@@ -5,10 +5,10 @@ import "../../scss/index.scss";
 
 const Header = () => {
   return (
-    <div className="header">
+    <>
       <Navbar />
       <NavbarImage />
-    </div>
+    </>
   );
 };
 

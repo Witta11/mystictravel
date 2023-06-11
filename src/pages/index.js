@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../scss/index.scss";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import BlogPreviewElement from "../components/BlogPreviewElement"
+import BlogPreviewElement from "../components/BlogPreviewElement";
+import ThreeImagesCtaElement from "../components/ThreeImagesCTAElement";
 import PrintServices from '../services/PrintServices';
 import { Helmet } from "react-helmet"
 // import favicon from '../images/favicon-256x256.png';
@@ -42,6 +43,7 @@ const IndexPage = () => {
         <div className="wrapper is--body">
           <div className={`${componentName}`}>
             <BlogPreviewElement />
+            <ThreeImagesCtaElement />
           </div>
         </div>
         <Footer />
