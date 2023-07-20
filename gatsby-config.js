@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "",
+    title: "mysticyogatravel",
     titleTemplate: "",
-    description: "",
+    description: "content hub for mysticism, yoga and traveling",
     url: "", // No trailing slash allowed!
     image: "./src/images/favicon-256x256.png", // Path to the image placed in the 'static' folder, in the project's root directory.
   },

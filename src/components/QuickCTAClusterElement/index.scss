@@ -1,0 +1,49 @@
+@import "../../scss/color";
+@import "../../scss/typography";
+@import "../../scss/breakpoints.scss";
+
+.cta-cluster__wrapper {
+  outline: 1px solid black;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 22px;
+
+  @media (max-width: $breakpoint-mobile-l ) {
+    margin: 30px auto;
+  }
+}
+
+.cta-cluster__title {
+  font-size: $font-size-l;
+  text-align: right;
+}
+
+.cta-cluster__sub-title {
+  font-size: $font-size-m;
+  text-align: right;
+}
+
+.cta-cluster__link-wrapper {
+  max-width: 265px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.cta-cluster__link-box {
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0 8px;
+}
+
+.cta-cluster__link-title {
+  margin-right: 8px;
+  text-transform: uppercase;
+  max-width: 60%;
+  text-align: right;
+}
+
+.cta-cluster__image {
+  width: 100px;
+  height: 100px;
+}

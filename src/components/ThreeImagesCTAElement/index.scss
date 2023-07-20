@@ -11,12 +11,24 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
+
+  @media (max-width: $breakpoint-mobile-l ) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .three-element__image {
   width: 200px;
   height: 200px;
   border-radius: 30px;
+
+  @media (max-width: $breakpoint-mobile-l ) {
+    width: 350px;
+    height: 350px;
+    margin: 8px;
+  }
 }
 
 .three-element__title {

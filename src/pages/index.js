@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BlogPreviewElement from "../components/BlogPreviewElement";
 import ThreeImagesCtaElement from "../components/ThreeImagesCTAElement";
+import QuickCTAClusterElement from "../components/QuickCTAClusterElement";
 import PrintServices from '../services/PrintServices';
 import { Helmet } from "react-helmet"
 // import favicon from '../images/favicon-256x256.png';
@@ -44,6 +45,7 @@ const IndexPage = () => {
           <div className={`${componentName}`}>
             <BlogPreviewElement />
             <ThreeImagesCtaElement />
+            <QuickCTAClusterElement />
           </div>
         </div>
         <Footer />
