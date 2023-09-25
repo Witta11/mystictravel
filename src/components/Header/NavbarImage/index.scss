@@ -3,12 +3,16 @@
 @import "../../../scss/breakpoints.scss";
 
 .navbarImage {
-width: 100%;
-top: -144px;
-height: 400px;
-position: relative;
-max-height: 100%;
-z-index: -1;
+  width: 100%;
+  top: -144px;
+  height: 320px;
+  position: relative;
+  max-height: 100%;
+  z-index: -1;
+
+  @media ( min-width: $breakpoint-laptop ) {
+    height: 400px;
+  }
 }
 
 .navbarImage__wrapper {

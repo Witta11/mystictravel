@@ -84,7 +84,7 @@ class PrintServices {
     }
   }
 
-  async getCategoryItemsOne() {
+  async getCategoryItems() {
     try {
       this.categoryItemResponse = await apolloClient.query({
         query: GET_CATEGORY_ITEM_FIRST_LEVEL,
