@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "../../../scss/index.scss";
+import PrintServices from '../../../services/PrintServices';
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import PrintServices from '../../../services/PrintServices';
-import ClickOutside from '../../../hooks/ClickOutside';
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import "../../../scss/index.scss";
 
 const Navbar = () => {
   const componentName = 'navbar';
@@ -15,16 +15,12 @@ const Navbar = () => {
 
   const [visible, setVisible] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [header, setHeader] = useState("navbar")
+  const [header, setHeader] = useState("navbar");
+  const [iconDirection, setIconDirection] = useState(faChevronDown);
 
   const [mysticTopics, setMysticTopics] = useState();
   const [yogaTopics, setYogaTopics] = useState();
   const [travelTopics, setTravelTopics] = useState();
-
-
-  const clickNavAway = () => {
-    setVisible(false);
-  };
 
   useEffect(() => {
     const fetchFirstLevel = async () => {
@@ -86,10 +82,9 @@ const Navbar = () => {
   };
 
   const listenScrollEvent = (event) => {
-    console.log(window.scrollY);
-    if (window.scrollY < 100) {
+    if (window.scrollY < 70) {
       return setHeader("navbar")
-    } else if (window.scrollY > 100) {
+    } else if (window.scrollY > 70) {
       return setHeader("navbar2")
     }
   };
@@ -97,21 +92,31 @@ const Navbar = () => {
   useEffect(() => {
     window.addEventListener('scroll', listenScrollEvent);
 
-    return () =>
-      window.removeEventListener('scroll', listenScrollEvent);
+    return () => window.removeEventListener('scroll', listenScrollEvent);
   }, []);
 
+  const setIcon = () => {
+    let navbar = document.getElementById('header__navbar');
+    if (navbar.className === 'navbar__topnav') {
+      navbar.className += ' responsive';
+      setIconDirection(faChevronUp);
+    } else {
+      navbar.className = 'navbar__topnav';
+      setIconDirection(faChevronDown);
+    }
+  }
+
   return (
-    <div className={`${header}`}>
-      <div className="wrapper">
-      <ClickOutside onClick={clickNavAway} className={'click-outside-wrapper'}>
-        <div className={`${componentName}__wrapper`}>
-          <div className={`${componentName}__nav-items`}>
-            <Link to="/" className={`${componentName}__logo`}>LOGO</Link>
-            {navigationTitles.map((item) => {
-              return (
+    <div className="wrapper">
+      <div className={`${header}`}>
+        <div className={`${componentName}__topnav`} id="header__navbar">
+          <Link to="/" className={`${componentName}__logo`}>LOGO</Link>
+          {/* <a href="#home" class="active">Home</a> */}
+          {navigationTitles.map((item) => {
+            return (
+              <div className="dropdown">
                 <Link
-                  className={`${componentName}__nav-items-cta`}
+                  className={`${componentName}__drop-cta`}
                   key={item.id}
                   to={item.slug}
                   onClick={() => selectNavTitle(item.id)}
@@ -119,31 +124,35 @@ const Navbar = () => {
                   >
                   {item.title}
                 </Link>
-              );
-            })}
-            <Link to="/about" className={`${componentName}__nav-items-cta`}>
-              About Me
-            </Link>
-            <a target="_blank" rel="noopener noreferrer" href="">
-              <FontAwesomeIcon icon={faInstagram} className="icon__instagram"/>
-            </a>
-          </div>
-          {subNavigationTitles &&
-            <div className={`${componentName}__nav-items-sub-menu ${visible ? '' : 'is--hidden'}`}>
-              {subNavigationTitles.map((item) => {
-                return (
-                  <Link
-                    key={item.id}
-                    className={`${componentName}__nav-items-cta`}
-                    to={item.slug}>
-                    {item.title}
-                  </Link>
-                );
-              })}
-            </div>
-          }
+                <div className="dropdown-content">
+                  {subNavigationTitles.map((item) => {
+                    return (
+                      <Link
+                        key={item.id}
+                        className={`${componentName}__sub-drop-cta`}
+                        to={item.slug}>
+                        {item.title}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+          <Link to="/about" className={`${componentName}__drop-cta`}>
+            About Me
+          </Link>
+          <a
+            className={`${componentName}__drop-cta`}
+            href="/" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faInstagram} className="icon__instagram"/>
+          </a>
+          <span className="icon__chevron"><FontAwesomeIcon
+            id="header__icon"
+            onClick={() => setIcon()}
+            icon={iconDirection}
+          /></span>
         </div>
-      </ClickOutside>
       </div>
     </div>
   );

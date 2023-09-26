@@ -3,21 +3,21 @@
 @import "../../../scss/breakpoints.scss";
 
 .navbar {
-  width: 100%;
-  height: 100px;
   position: sticky;
-  top: 0px;
+  top: 0;
   left: 0;
   background-color: transparent;
+  z-index: 1;
 }
 
 .navbar2 {
   width: 100%;
-  height: 100%;
-  position: sticky;
-  top: 0px;
+  height: fit-content;
+  position: fixed;
+  top: 0;
   left: 0;
   background-color: $pompandpower;
+  z-index: 1;
 
   .navbar__nav-items {
     @media (max-width: $breakpoint-tablet) {
@@ -28,90 +28,88 @@
   }
 }
 
-.navbar .wrapper, .navbar2 .wrapper {
-  padding: 20px 20px 0;
-
-  @media ( min-width: $breakpoint-laptop ) {
-    padding: 30px 10px;
-  }
-}
-
-.navbar__wrapper {
-  width: 100%;
+.navbar__topnav {
+  margin-top: 20px;
+  overflow: hidden;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  text-transform: uppercase;
-  font-size: $font-size-ms;
-
-  @media ( min-width: $breakpoint-tablet ) {
-    align-items: flex-start;
-    font-size: $font-size-m;
-  }
+  justify-content: space-evenly;
 }
 
-.navbar__nav-items {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  @media ( min-width: $breakpoint-tablet ) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.navbar2 .navbar__topnav {
+  margin: 0;
 }
 
-.navbar__nav-items-cta {
-  background: none;
-  border: none;
+/* Style the links inside the navigation bar */
+.navbar__topnav a {
+  float: left;
+  display: block;
   font-size: $font-size-m;
-  text-transform: uppercase;
-  padding: 0;
-  text-decoration: none;
-  font-family: "Lato";
-  border-bottom: 1px solid transparent;
-  padding-bottom: 3px;
   color: $gold;
-  margin: 8px 0;
-
-  @media ( min-width: $breakpoint-tablet ) {
-    margin: 0;
-  }
+  text-transform: uppercase;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-.navbar__nav-items-sub-menu {
-  display: flex;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  justify-content: space-around;
-  // background: white;
+/* Add an active class to highlight the current page */
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.navbar__topnav .icon {
+  display: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .navbar__drop-cta {
+  border: none;
+  outline: none;
+  font-size: $font-size-m;
+  color: $gold;
+  text-transform: uppercase;
   padding: 16px;
-  width: auto;
-  left: 50%;
-  transform: translate(-50%, 0);
-
-  @media ( min-width: $breakpoint-tablet ) {
-    width: 75%;
-  }
+  padding-left: 0;
+  padding-right: 0;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
 }
 
-.navbar__nav-items-sub-menu.is--hidden {
-  opacity: 0;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+  top: 50px;
 }
 
-.navbar__nav-items-cta:hover {
-  padding-bottom: 3px;
-  border-bottom: 1px solid $gold;
-  height: 19px;
+.navbar2 .navbar__topnav .dropdown .dropdown-content {
+  background-color: #f9f9f9;
+  padding: 14px 16px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+  float: none;
+  color: $gold;
+  padding: 12px 16px;
+  padding-left: 0;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
 
 .icon__instagram {
   color: $gold;
   font-size: 18px;
-  margin: 0;
+  margin-left: 20px;
 
-  @media ( min-width: $breakpoint-laptop ) {
+  @media (min-width: $breakpoint-laptop ) {
     margin: 1px 0 0 20px;
   }
 
@@ -121,10 +119,82 @@
   }
 }
 
+.navbar__topnav a:hover,
 .icon__instagram:hover {
-  color: $beige;
+  color: $eggplant;
 }
 
-.click-outside-wrapper {
-  height: 100px;
+.dropdown:hover .navbar__drop-cta {
+  color: $gold;
+  padding-bottom: 7px;
+  border-bottom: 2px solid $gold;
+}
+
+.dropdown-content a:hover,
+.navbar__sub-drop-cta:hover {
+  color: $eggplant;
+  border-bottom: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+
+  .navbar__topnav a:nth-child(n+5) {
+    display: none;
+  }
+
+  .navbar__topnav .icon__chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $gold;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .navbar__topnav {
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+  }
+
+  .navbar__topnav.responsive {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 20px;
+    padding: 14px 16px;
+  }
+
+  .navbar__topnav.responsive a.icon__chevron {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .navbar__topnav.responsive a {
+    padding: 0;
+    float: none;
+    display: flex;
+  }
+
+  .navbar__topnav.responsive .dropdown {
+    float: none;
+  }
+
+  .navbar__topnav.responsive .dropdown-content {
+    position: relative;
+  }
+
+  .navbar__topnav.responsive .dropdown .navbar__drop-cta {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
 }
