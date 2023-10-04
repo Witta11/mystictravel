@@ -23,6 +23,8 @@ export const GET_BLOG_POST_PREVIEW_ELEMENT = gql`
         image {
           url
         }
+        slug
+        pointingId
       }
     }
   }

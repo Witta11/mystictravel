@@ -37,6 +37,7 @@
 
 .navbar2 .navbar__topnav {
   margin: 0;
+  background-color: $pompandpower;
 }
 
 /* Style the links inside the navigation bar */
@@ -140,6 +141,10 @@
   display: block;
 }
 
+.icon__chevron {
+  display: none;
+}
+
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
 
@@ -150,7 +155,7 @@
   .navbar__topnav .icon__chevron {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     color: $gold;
   }
 }
@@ -163,6 +168,10 @@
     width: 100%;
   }
 
+  .navbar2 .navbar__topnav {
+    justify-content: space-evenly;
+  }
+
   .navbar__topnav.responsive {
     width: 90%;
     display: grid;
@@ -172,7 +181,12 @@
     padding: 14px 16px;
   }
 
+  .navbar2 .navbar__topnav.responsive {
+    width: 100%;
+  }
+
   .navbar__topnav.responsive a.icon__chevron {
+    display: block;
     position: absolute;
     right: 0;
     top: 0;

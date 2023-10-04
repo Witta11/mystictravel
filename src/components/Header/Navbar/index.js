@@ -63,7 +63,7 @@ const Navbar = () => {
     fetchTravelLevel().then(value => {
       setTravelTopics(value.data.categoryItemCollection.items);
     });
-  }, []);
+  }, [mysticTopics, yogaTopics, travelTopics]);
 
   const selectNavTitle = (id) => {
     setIsOpen(!isOpen);
@@ -110,14 +110,14 @@ const Navbar = () => {
     <div className="wrapper">
       <div className={`${header}`}>
         <div className={`${componentName}__topnav`} id="header__navbar">
-          <Link to="/" className={`${componentName}__logo`}>LOGO</Link>
+          <Link key="logo" to="/" className={`${componentName}__logo`}>LOGO</Link>
           {/* <a href="#home" class="active">Home</a> */}
-          {navigationTitles.map((item) => {
+          {navigationTitles.map((item, index) => {
             return (
               <div className="dropdown">
                 <Link
                   className={`${componentName}__drop-cta`}
-                  key={item.id}
+                  key={index}
                   to={item.slug}
                   onClick={() => selectNavTitle(item.id)}
                   onMouseEnter={() => selectNavTitle(item.id)}
@@ -128,7 +128,7 @@ const Navbar = () => {
                   {subNavigationTitles.map((item) => {
                     return (
                       <Link
-                        key={item.id}
+                        key={index + `-${item.id}`}
                         className={`${componentName}__sub-drop-cta`}
                         to={item.slug}>
                         {item.title}
@@ -139,15 +139,16 @@ const Navbar = () => {
               </div>
             );
           })}
-          <Link to="/about" className={`${componentName}__drop-cta`}>
+          <Link key="about" to="/about" className={`${componentName}__drop-cta`}>
             About Me
           </Link>
           <a
+            key="instagram"
             className={`${componentName}__drop-cta`}
             href="/" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faInstagram} className="icon__instagram"/>
           </a>
-          <span className="icon__chevron"><FontAwesomeIcon
+          <span key="chevron" className="icon__chevron"><FontAwesomeIcon
             id="header__icon"
             onClick={() => setIcon()}
             icon={iconDirection}
