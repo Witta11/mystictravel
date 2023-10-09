@@ -43,7 +43,7 @@ const IndexPage = () => {
         <Header />
         <div className="wrapper is--body">
           <div className={`${componentName}`}>
-            <BlogPreviewElement />
+            <BlogPreviewElement blogPreviewElementId={1} />
             <ThreeImagesCtaElement />
             <QuickCTAClusterElement />
           </div>

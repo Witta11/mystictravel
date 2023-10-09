@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PrintServices from '../../services/PrintServices';
 import { Link } from "gatsby";
 
-const BlogPreviewElement = () => {
+const BlogPreviewElement = ({ blogPreviewElementId = 0 }) => {
   const componentName = 'blog-preview';
   const [blogTitle, setBlogTitle] = useState(null);
   const [blogSubTitle, setBlogSubTitle] = useState(null);
@@ -17,13 +17,15 @@ const BlogPreviewElement = () => {
     }
 
     fetchPrint().then(value => {
-      setBlogPointingId(value.data.blogPostPreviewElementCollection.items[0].pointingId);
-      setBlogTitle(value.data.blogPostPreviewElementCollection.items[0].headline);
-      setBlogSubTitle(value.data.blogPostPreviewElementCollection.items[0].subheadline);
-      setBlogPreviewText(value.data.blogPostPreviewElementCollection.items[0].previewText);
-      setBlogImage(value.data.blogPostPreviewElementCollection.items[0].image);
-      setBlogSlug(value.data.blogPostPreviewElementCollection.items[0].slug);
-      console.log('items', value.data.blogPostPreviewElementCollection.items)
+      const previewElement = value.data.blogPostPreviewElementCollection.items.find(function (obj) {
+        return obj.pointingId === blogPreviewElementId
+      });
+
+      setBlogTitle(previewElement.headline);
+      setBlogSubTitle(previewElement.subheadline);
+      setBlogPreviewText(previewElement.previewText);
+      setBlogImage(previewElement.image);
+      setBlogSlug(previewElement.slug);
     })
   });
 

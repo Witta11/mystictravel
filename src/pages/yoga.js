@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PrintServices from '../services/PrintServices';
-import "../scss/pages/travel.scss";
+import "../scss/pages/yoga.scss";
 import { Helmet } from "react-helmet";
 // import favicon from '../images/favicon-256x256.png';
 
-function Travel() {
+function Yoga() {
 
   useEffect(() => {
   });
@@ -24,7 +24,7 @@ function Travel() {
           />
       </Helmet>
       <Header />
-      <div className="about is--body">
+      <div className="">
 
       </div>
       <Footer />
@@ -32,4 +32,4 @@ function Travel() {
   );
 }
 
-export default Travel;
+export default Yoga;

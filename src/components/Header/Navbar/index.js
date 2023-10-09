@@ -63,7 +63,7 @@ const Navbar = () => {
     fetchTravelLevel().then(value => {
       setTravelTopics(value.data.categoryItemCollection.items);
     });
-  }, [mysticTopics, yogaTopics, travelTopics]);
+  }, []);
 
   const selectNavTitle = (id) => {
     setIsOpen(!isOpen);
@@ -114,7 +114,7 @@ const Navbar = () => {
           {/* <a href="#home" class="active">Home</a> */}
           {navigationTitles.map((item, index) => {
             return (
-              <div className="dropdown">
+              <div className="dropdown" key={index}>
                 <Link
                   className={`${componentName}__drop-cta`}
                   key={index}
