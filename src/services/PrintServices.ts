@@ -1,154 +1,158 @@
 import apolloClient from '../graphql';
-import { GET_BLOG_POST_PREVIEW_ELEMENT,
+import {
+  GET_BLOG_POST_PREVIEW_ELEMENT,
   GET_HOMEPAGE_BANNER,
   GET_THREE_IMAGES_CTA_ELEMENT,
   GET_QUICK_CTA_CLUSTER_ELEMENT,
-  GET_CATEGORY_ITEM_FIRST_LEVEL,
-  GET_MYSTIC_SUB, GET_YOGA_SUB, GET_TRAVEL_SUB } from './queries';
+  GET_MYSTIC_SUB,
+  GET_YOGA_SUB,
+  GET_TRAVEL_SUB,
+  GET_ALL_BLOGS,
+} from './queries';
 
 class PrintServices {
-  private homepageBannerResponse;
-  private blogPostPreviewResponse;
-  private threeImagesCTAResponse;
-  private ctaClusterResponse;
-  private categoryItemResponse;
-  private mysticCategoriesResponse;
-  private yogaCategoriesResponse;
-  private travelCategoriesResponse;
+  private homepageBannerResponse: any;
+  private blogPostPreviewResponse: any;
+  private threeImagesCTAResponse: any;
+  private ctaClusterResponse: any;
+  private blogPostResponse: any;
+  private mysticCategoriesResponse: any;
+  private yogaCategoriesResponse: any;
+  private travelCategoriesResponse: any;
 
-  async getHomepageImageBanner() {
+  async getHomepageImageBanner(): Promise<any> {
     try {
       this.homepageBannerResponse = await apolloClient.query({
         query: GET_HOMEPAGE_BANNER,
-        variables: {}
+        variables: {},
       });
 
-      if (!this.homepageBannerResponse || !this.homepageBannerResponse.data){
+      if (!this.homepageBannerResponse || !this.homepageBannerResponse.data) {
         throw Error('No data available');
       }
 
       return this.homepageBannerResponse;
-    } catch(error) {
-      throw error;
+    } catch (error) {
+      console.log(error);
     }
   }
 
-  async getBlogPostPreviewElement() {
+  async getBlogPostPreviewElement(): Promise<any> {
     try {
       this.blogPostPreviewResponse = await apolloClient.query({
         query: GET_BLOG_POST_PREVIEW_ELEMENT,
-        variables: {}
+        variables: {},
       });
 
-      if (!this.blogPostPreviewResponse || !this.blogPostPreviewResponse.data){
+      if (!this.blogPostPreviewResponse || !this.blogPostPreviewResponse.data) {
         throw Error('No data available');
       }
 
       return this.blogPostPreviewResponse;
-    } catch(error) {
-      throw error;
+    } catch (error) {
+      console.log(error);
     }
   }
 
-  async getThreeImagesCTAElement() {
+  async getThreeImagesCTAElement(): Promise<any> {
     try {
       this.threeImagesCTAResponse = await apolloClient.query({
         query: GET_THREE_IMAGES_CTA_ELEMENT,
-        variables: {}
+        variables: {},
       });
 
-      if (!this.threeImagesCTAResponse || !this.threeImagesCTAResponse.data){
+      if (!this.threeImagesCTAResponse || !this.threeImagesCTAResponse.data) {
         throw Error('No data available');
       }
 
       return this.threeImagesCTAResponse;
-    } catch(error) {
-      throw error;
+    } catch (error) {
+      console.log(error);
     }
   }
 
-  async getQuickCTAClusterElement() {
+  async getQuickCTAClusterElement(): Promise<any> {
     try {
       this.ctaClusterResponse = await apolloClient.query({
         query: GET_QUICK_CTA_CLUSTER_ELEMENT,
-        variables: {}
+        variables: {},
       });
 
-      if (!this.ctaClusterResponse || !this.ctaClusterResponse.data){
+      if (!this.ctaClusterResponse || !this.ctaClusterResponse.data) {
         throw Error('No data available');
       }
 
       return this.ctaClusterResponse;
-    } catch(error) {
-      throw error;
+    } catch (error) {
+      console.log(error);
     }
   }
 
-  async getCategoryItems() {
+  async getBlogPosts(): Promise<any> {
     try {
-      this.categoryItemResponse = await apolloClient.query({
-        query: GET_CATEGORY_ITEM_FIRST_LEVEL,
-        variables: {}
+      this.blogPostResponse = await apolloClient.query({
+        query: GET_ALL_BLOGS,
+        variables: {},
       });
 
-      if (!this.categoryItemResponse || !this.categoryItemResponse.data){
+      if (!this.blogPostResponse || !this.blogPostResponse.data) {
         throw Error('No data available');
       }
 
-      return this.categoryItemResponse;
-    } catch(error) {
-      throw error;
+      return this.blogPostResponse;
+    } catch (error) {
+      console.log(error);
     }
   }
 
-  async getMysticCategories() {
+  async getMysticCategories(): Promise<any> {
     try {
       this.mysticCategoriesResponse = await apolloClient.query({
         query: GET_MYSTIC_SUB,
-        variables: {}
+        variables: {},
       });
 
-      if (!this.mysticCategoriesResponse || !this.mysticCategoriesResponse.data){
+      if (!this.mysticCategoriesResponse || !this.mysticCategoriesResponse.data) {
         throw Error('No data available');
       }
 
       return this.mysticCategoriesResponse;
-    } catch(error) {
-      throw error;
+    } catch (error) {
+      console.log(error);
     }
   }
 
-  async getYogaCategories() {
+  async getYogaCategories(): Promise<any> {
     try {
       this.yogaCategoriesResponse = await apolloClient.query({
         query: GET_YOGA_SUB,
-        variables: {}
+        variables: {},
       });
 
-      if (!this.yogaCategoriesResponse || !this.yogaCategoriesResponse.data){
+      if (!this.yogaCategoriesResponse || !this.yogaCategoriesResponse.data) {
         throw Error('No data available');
       }
 
       return this.yogaCategoriesResponse;
-    } catch(error) {
-      throw error;
+    } catch (error) {
+      console.log(error);
     }
   }
 
-  async getTravelCategories() {
+  async getTravelCategories(): Promise<any> {
     try {
       this.travelCategoriesResponse = await apolloClient.query({
         query: GET_TRAVEL_SUB,
-        variables: {}
+        variables: {},
       });
 
-      if (!this.travelCategoriesResponse || !this.travelCategoriesResponse.data){
+      if (!this.travelCategoriesResponse || !this.travelCategoriesResponse.data) {
         throw Error('No data available');
       }
 
       return this.travelCategoriesResponse;
-    } catch(error) {
-      throw error;
+    } catch (error) {
+      console.log(error);
     }
   }
 }

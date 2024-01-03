@@ -76,25 +76,28 @@ export const GET_QUICK_CTA_CLUSTER_ELEMENT = gql`
   }
 `;
 
-export const GET_CATEGORY_ITEM_FIRST_LEVEL= gql`
-  query getCategoryItemsOne {
-    categoryItemCollection(where: { parentId: 0 }) {
-      items {
-        title
-        id
-        slug
-        mediaContent {
-          title
-          url
+export const GET_ALL_BLOGS = gql`
+query getBlogPosts {
+  blogPostCollection {
+    items {
+      id
+      title
+      category
+      slug
+      mediaCollection{
+        items{
+          width
         }
       }
+      
     }
   }
+}
 `;
 
 export const GET_MYSTIC_SUB= gql`
-  query getCategoryItemsOne {
-    categoryItemCollection(where: { parentId: 1 }) {
+  query getBlogPostOne {
+    blogPostCollection(where: { parentId: 1 }) {
       items {
         title
         id
@@ -109,24 +112,24 @@ export const GET_MYSTIC_SUB= gql`
 `;
 
 export const GET_YOGA_SUB= gql`
-  query getCategoryItemsOne {
-    categoryItemCollection(where: { parentId: 2 }) {
+  query getBlogPostOne {
+    blogPostCollection(where: { parentId: 2 }) {
       items {
         title
         id
         slug
-        mediaContent {
-          title
-          url
-        }
+      }
+      mediaContent {
+        title
+        url
       }
     }
   }
 `;
 
 export const GET_TRAVEL_SUB= gql`
-  query getCategoryItemsOne {
-    categoryItemCollection(where: { parentId: 3 }) {
+  query getBlogPostOne {
+    blogPostCollection(where: { parentId: 3 }) {
       items {
         title
         id

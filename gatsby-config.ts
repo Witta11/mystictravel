@@ -15,6 +15,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
     `react-device-detect`,
+    `@contentful/gatsby-transformer-contentful-richtext`,
     {
     resolve: `gatsby-source-contentful`,
     options: {

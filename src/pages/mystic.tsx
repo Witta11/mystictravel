@@ -15,7 +15,7 @@ function Mystic() {
     }
 
     fetchMysticLevel().then(value => {
-      console.log(value.data.categoryItemCollection.items);
+      console.log(value.data.blogPostCollection.items);
     });
 
   });

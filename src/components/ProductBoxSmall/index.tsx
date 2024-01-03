@@ -2,8 +2,19 @@ import React, { useEffect } from "react";
 import Modal from 'react-modal';
 import { FaPlus } from 'react-icons/fa';
 
-function ProductBoxSmall({print}) {
-  const componentName= "productbox-small";
+interface Print {
+  url: string;
+  title: string;
+  description: string;
+  // Add other properties as needed
+}
+
+interface ProductBoxSmallProps {
+  print: Print;
+}
+
+const ProductBoxSmall: React.FC<ProductBoxSmallProps> = ({ print }) => {
+  const componentName = "productbox-small";
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
@@ -12,7 +23,7 @@ function ProductBoxSmall({print}) {
   }
 
   function afterOpenModal() {
-
+    // You can add logic here if needed
   }
 
   function closeModal() {
@@ -21,12 +32,18 @@ function ProductBoxSmall({print}) {
   }
 
   useEffect(() => {
-    document.addEventListener('keydown', function(e) {
-      if (e.keyCode === '27') {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.keyCode === 27) {
         closeModal();
       }
-    });
-  })
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   return (
     <>
@@ -45,18 +62,12 @@ function ProductBoxSmall({print}) {
       <div className={componentName}>
         <img onClick={openModal} className={`${componentName}__image`} src={print.url} alt={print.title} />
       </div>
-        <div className={`${componentName}__info`}>
-          <div className={`${componentName}__image-title`}>{print.title}</div>
-          <div className={`${componentName}__image-description`} dangerouslySetInnerHTML={{__html: print.description}}></div>
-        </div>
+      <div className={`${componentName}__info`}>
+        <div className={`${componentName}__image-title`}>{print.title}</div>
+        <div className={`${componentName}__image-description`} dangerouslySetInnerHTML={{ __html: print.description }}></div>
+      </div>
     </>
   );
 };
-
-{/* <div className={`${componentName}__image-info`}>
-  <div className={`${componentName}__image-title`}>{print.title}</div>
-  <div className={`${componentName}__image-description`} dangerouslySetInnerHTML={{__html: print.description}}></div>
-  <button onClick={openModal} className={`${componentName}__image-btn btn`}>Zoom in</button>
-</div> */}
 
 export default ProductBoxSmall;
